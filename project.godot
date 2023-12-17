@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Kanax Cronicles"
+config/name="Kanax Chronicles"
 run/main_scene="res://town.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [rendering]
 
