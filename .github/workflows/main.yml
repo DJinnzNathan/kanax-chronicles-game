@@ -39,17 +39,3 @@ jobs:
         generateReleaseNotes: true
         tag: ${{ github.ref_name }}
         artifacts: ${{ steps.export.outputs.archive_directory }}/*
-
-    - name: install wine
-      id: wine_install
-      run: |
-        sudo apt install wine64
-        echo "WINE_PATH=$(which wine64)" >> $GITHUB_OUTPUT
-
-    # Any other intermediate steps can go here
-
-    - name: export game
-    uses: firebelley/godot-export@v5.2.0
-    with:
-      # ...supply your other options here
-      wine_path: ${{ steps.wine_install.outputs.WINE_PATH }} # set the wine path here which is the output of the wine_install step
