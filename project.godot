@@ -13,8 +13,8 @@ config_version=5
 config/name="Kanax Chronicles"
 run/main_scene="res://Scenes/town.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-boot_splash/image="res://Assets/icon.svg"
-config/icon="res://Assets/icon_min.svg"
+boot_splash/image="res://Assets/Icons/icon.svg"
+config/icon="res://Assets/Icons/icon_min.svg"
 
 [display]
 

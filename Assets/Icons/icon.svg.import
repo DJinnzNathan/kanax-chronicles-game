@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cidkw8ioiqm2i"
-path="res://.godot/imported/Premade_Character_32x32_13.png-98d3eccdf10effd360df80dbcc9bbf84.ctex"
+uid="uid://baqqpw1vyhdcc"
+path="res://.godot/imported/icon.svg-09d416435436552b2aea0678a49c720c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Premade_Character_32x32_13.png"
-dest_files=["res://.godot/imported/Premade_Character_32x32_13.png-98d3eccdf10effd360df80dbcc9bbf84.ctex"]
+source_file="res://Assets/Icons/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-09d416435436552b2aea0678a49c720c.ctex"]
 
 [params]
 
@@ -25,10 +25,13 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
