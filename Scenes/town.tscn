@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ncoqsxqwesw5"]
+[gd_scene load_steps=22 format=3 uid="uid://ncoqsxqwesw5"]
 
 [ext_resource type="Texture2D" uid="uid://bkjftispmbr7l" path="res://Assets/Tilesets/1_Terrains_and_Fences_32x32.png" id="1_pavwy"]
 [ext_resource type="PackedScene" uid="uid://chqb57xqqp0ie" path="res://Scenes/player.tscn" id="1_svtyj"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://djxw2tabrtfbj" path="res://Assets/Tilesets/6_Garage_Sales_32x32.png" id="6_v614d"]
 [ext_resource type="Texture2D" uid="uid://bjrysuv6u2ymp" path="res://Assets/Tilesets/7_Villas_32x32.png" id="7_c7ekb"]
 [ext_resource type="Texture2D" uid="uid://btr1tcwrqch5l" path="res://Assets/Tilesets/8_Worksite_32x32.png" id="8_j2qms"]
+[ext_resource type="PackedScene" uid="uid://dkwbcnegj6mcc" path="res://BattleScene/battleSpawn.tscn" id="10_dyh47"]
+[ext_resource type="PackedScene" uid="uid://clwggm8ghthxo" path="res://Scenes/UI.tscn" id="11_qedmi"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ern2k"]
 tile_data = PackedInt32Array(0, 2490369, 1342177339, 65536, 2490369, 1342177339, 1, 2031617, 5, 65537, 2228225, 6, 2, 2097153, 5, 65538, 2162689, 6, 3, 2162689, 5, 65539, 2555905, 52, 4, 2162689, 7, 65540, 2097153, 4, 5, 1966081, 7, 65541, 2162689, 6, 6, 2424833, 1610612795, 65542, 2424833, 1610612795)
@@ -51167,10 +51169,15 @@ layer_5/z_index = -10
 layer_5/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("1_svtyj")]
-position = Vector2(907, 306)
+position = Vector2(907, 339)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 2.0
+
+[node name="BattleSpawn" parent="." instance=ExtResource("10_dyh47")]
+
+[node name="UI" parent="." instance=ExtResource("11_qedmi")]
+layer = 2

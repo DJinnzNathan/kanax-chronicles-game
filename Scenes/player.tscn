@@ -148,12 +148,13 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jae61"]
-size = Vector2(32, 17)
+size = Vector2(34, 6)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_8r7xh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+process_mode = 3
 texture = ExtResource("2_0j3fx")
 hframes = 24
 vframes = 3
@@ -168,5 +169,6 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 23.5)
+process_mode = 3
+position = Vector2(-75, -27)
 shape = SubResource("RectangleShape2D_jae61")

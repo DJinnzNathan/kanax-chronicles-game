@@ -1,0 +1,134 @@
+[gd_scene load_steps=11 format=3 uid="uid://d0d3nmuowvbv1"]
+
+[ext_resource type="Script" path="res://Monsters/kek.gd" id="1_vnfej"]
+[ext_resource type="Texture2D" uid="uid://dvssjm83bmiiv" path="res://Monsters/00021-2896072171.png" id="2_lci3p"]
+[ext_resource type="Texture2D" uid="uid://bo118cisw2cla" path="res://Monsters/Nintendo 64 - DOOM 64 - Attacks.png" id="3_jdry7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ff4sx"]
+size = Vector2(4.75, 4.25)
+
+[sub_resource type="Animation" id="Animation_lk22r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -62)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="Animation" id="Animation_hinau"]
+resource_name = "Spawn"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(45, -22), Vector2(14, -61)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_bf412"]
+resource_name = "capture"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83886"]
+_data = {
+"RESET": SubResource("Animation_lk22r"),
+"Spawn": SubResource("Animation_hinau"),
+"capture": SubResource("Animation_bf412")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0g4b"]
+atlas = ExtResource("3_jdry7")
+region = Rect2(408, 357, 51, 51)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_upci0"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"ANSPUCKEN",
+"speed": 1.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"BELEIDIGEN",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0g4b")
+}],
+"loop": false,
+"name": &"TRETEN",
+"speed": 1.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Kek" type="StaticBody2D"]
+position = Vector2(5, 17)
+script = ExtResource("1_vnfej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(26, -61)
+shape = SubResource("RectangleShape2D_ff4sx")
+
+[node name="DsDSi-PokemonBlackWhite-Pokemon1StGenerationFront" type="Sprite2D" parent="."]
+position = Vector2(-1, -62)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_lci3p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../DsDSi-PokemonBlackWhite-Pokemon1StGenerationFront")
+libraries = {
+"": SubResource("AnimationLibrary_83886")
+}
+autoplay = "Spawn"
+
+[node name="aim" type="Marker2D" parent="."]
+position = Vector2(18, -45)
+
+[node name="attack" type="AnimatedSprite2D" parent="aim"]
+position = Vector2(-11, 14.6537)
+scale = Vector2(1.356, 1.26902)
+sprite_frames = SubResource("SpriteFrames_upci0")
+animation = &"BELEIDIGEN"
+
+[connection signal="animation_finished" from="aim/attack" to="." method="_on_attack_animation_finished"]

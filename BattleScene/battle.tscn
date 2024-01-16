@@ -1,0 +1,345 @@
+[gd_scene load_steps=12 format=3 uid="uid://bs0wjr523ebye"]
+
+[ext_resource type="Script" path="res://BattleScene/Battle.gd" id="1_2uorf"]
+[ext_resource type="Texture2D" uid="uid://cgvxbpb4kjxco" path="res://BattleScene/battle_background2.png" id="2_ivul6"]
+[ext_resource type="Script" path="res://BattleScene/UI.gd" id="3_b0gja"]
+[ext_resource type="Script" path="res://BattleScene/MonsterUI.gd" id="3_h6wt0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qesb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jw3vk"]
+bg_color = Color(0, 0.752941, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4y5eq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nwqf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dll5h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j7rpc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l67wb"]
+
+[node name="Battle" type="CanvasLayer"]
+script = ExtResource("1_2uorf")
+
+[node name="BattleBackground4" type="Sprite2D" parent="."]
+position = Vector2(559, 329.5)
+scale = Vector2(3.83333, 2.73232)
+texture = ExtResource("2_ivul6")
+hframes = 8
+vframes = 8
+frame = 41
+
+[node name="MonsterUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1507.0
+offset_top = -956.0
+offset_right = -1467.0
+offset_bottom = -916.0
+script = ExtResource("3_h6wt0")
+
+[node name="Info" type="Label" parent="MonsterUI"]
+layout_mode = 0
+offset_left = 1601.0
+offset_top = 1033.0
+offset_right = 1709.0
+offset_bottom = 1056.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "KANAX LVL 15"
+
+[node name="HPTxt" type="Label" parent="MonsterUI"]
+layout_mode = 0
+offset_left = 1871.0
+offset_top = 1083.0
+offset_right = 1982.0
+offset_bottom = 1106.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "10/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HPBar" type="ProgressBar" parent="MonsterUI"]
+layout_mode = 0
+offset_left = 1601.0
+offset_top = 1057.0
+offset_right = 1927.0
+offset_bottom = 1082.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_0qesb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jw3vk")
+value = 50.0
+show_percentage = false
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(359, 497)
+scale = Vector2(1.5, 1.5)
+
+[node name="Enemy2" type="Node2D" parent="."]
+position = Vector2(764, 302)
+scale = Vector2(1.5, 1.5)
+
+[node name="Action" type="Label" parent="."]
+offset_left = 420.0
+offset_top = 67.0
+offset_right = 830.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "This is an Action!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1507.0
+offset_top = -956.0
+offset_right = -1467.0
+offset_bottom = -916.0
+script = ExtResource("3_b0gja")
+
+[node name="Menu" type="HBoxContainer" parent="UI"]
+layout_mode = 0
+offset_left = 2158.0
+offset_top = 1385.0
+offset_right = 2378.0
+offset_bottom = 1462.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 840
+
+[node name="GridContainer" type="GridContainer" parent="UI/Menu"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="Fight" type="Button" parent="UI/Menu/GridContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Switch")
+focus_neighbor_bottom = NodePath("../Capture")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4y5eq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7nwqf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dll5h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j7rpc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l67wb")
+text = "Fight"
+
+[node name="Switch" type="Button" parent="UI/Menu/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Fight")
+focus_neighbor_bottom = NodePath("../Flee")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4y5eq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7nwqf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dll5h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j7rpc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l67wb")
+text = "Switch"
+
+[node name="Capture" type="Button" parent="UI/Menu/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Fight")
+focus_neighbor_right = NodePath("../Flee")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4y5eq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7nwqf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dll5h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j7rpc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l67wb")
+text = "Capture"
+
+[node name="Flee" type="Button" parent="UI/Menu/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Capture")
+focus_neighbor_top = NodePath("../Switch")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4y5eq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7nwqf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dll5h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j7rpc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l67wb")
+text = "Flee"
+
+[node name="Fight" type="HBoxContainer" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 1925.0
+offset_top = 1380.0
+offset_right = 2229.0
+offset_bottom = 1461.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 840
+
+[node name="GridContainer" type="GridContainer" parent="UI/Fight"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="Attack 1" type="Button" parent="UI/Fight/GridContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Attack 2")
+focus_neighbor_bottom = NodePath("../Attack 3")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4y5eq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7nwqf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dll5h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j7rpc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l67wb")
+text = "TRETEN"
+
+[node name="Attack 2" type="Button" parent="UI/Fight/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Attack 1")
+focus_neighbor_bottom = NodePath("../Back")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4y5eq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7nwqf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dll5h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j7rpc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l67wb")
+text = "ANSPUCKEN"
+
+[node name="Attack 3" type="Button" parent="UI/Fight/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Attack 1")
+focus_neighbor_right = NodePath("../Back")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4y5eq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7nwqf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dll5h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j7rpc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l67wb")
+text = "BELEIDIGEN"
+
+[node name="Back" type="Button" parent="UI/Fight/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Attack 3")
+focus_neighbor_top = NodePath("../Attack 2")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4y5eq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7nwqf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dll5h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j7rpc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l67wb")
+text = "BACK"
+
+[node name="Switch" type="HBoxContainer" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 2131.0
+offset_top = 1354.0
+offset_right = 2351.0
+offset_bottom = 1431.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 840
+
+[node name="GridContainer" type="GridContainer" parent="UI/Switch"]
+visible = false
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="Monster 1" type="Button" parent="UI/Switch/GridContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Monster 2")
+focus_neighbor_bottom = NodePath("../Monster 3")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4y5eq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7nwqf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dll5h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j7rpc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l67wb")
+text = "kek"
+
+[node name="Monster 2" type="Button" parent="UI/Switch/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Monster 1")
+focus_neighbor_bottom = NodePath("../Back")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4y5eq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7nwqf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dll5h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j7rpc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l67wb")
+text = "hund"
+
+[node name="Monster 3" type="Button" parent="UI/Switch/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Monster 1")
+focus_neighbor_right = NodePath("../Back")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4y5eq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7nwqf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dll5h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j7rpc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l67wb")
+text = "lappen"
+
+[node name="Back" type="Button" parent="UI/Switch/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Monster 3")
+focus_neighbor_top = NodePath("../Monster 2")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4y5eq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7nwqf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dll5h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j7rpc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l67wb")
+text = "BACK"
+
+[node name="Info" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 2180.0
+offset_top = 1317.0
+offset_right = 2288.0
+offset_bottom = 1340.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "KANAX LVL 15"
+
+[node name="HPTxt" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 2450.0
+offset_top = 1367.0
+offset_right = 2561.0
+offset_bottom = 1390.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "10/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HPBar" type="ProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = 2180.0
+offset_top = 1341.0
+offset_right = 2506.0
+offset_bottom = 1366.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_0qesb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jw3vk")
+value = 50.0
+show_percentage = false
+
+[connection signal="pressed" from="UI/Menu/GridContainer/Fight" to="UI" method="_on_fight_pressed"]
+[connection signal="pressed" from="UI/Menu/GridContainer/Switch" to="UI" method="_on_switch_pressed"]
+[connection signal="pressed" from="UI/Menu/GridContainer/Capture" to="." method="_on_capture_pressed"]
+[connection signal="pressed" from="UI/Menu/GridContainer/Flee" to="UI" method="_on_flee_pressed"]
+[connection signal="pressed" from="UI/Fight/GridContainer/Attack 1" to="UI" method="_on_attack_pressed" binds= [0]]
+[connection signal="pressed" from="UI/Fight/GridContainer/Attack 2" to="UI" method="_on_attack_pressed" binds= [1]]
+[connection signal="pressed" from="UI/Fight/GridContainer/Attack 3" to="UI" method="_on_attack_pressed" binds= [2]]
+[connection signal="pressed" from="UI/Fight/GridContainer/Back" to="UI" method="_on_back_pressed"]
+[connection signal="pressed" from="UI/Switch/GridContainer/Back" to="UI" method="_on_back_pressed"]
