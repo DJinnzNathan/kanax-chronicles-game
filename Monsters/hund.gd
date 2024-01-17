@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var Health = 26
+var Health = 91
 var Level = 15
 
 # Called when the node enters the scene tree for the first time.

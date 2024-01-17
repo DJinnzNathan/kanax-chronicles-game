@@ -78,12 +78,18 @@ region = Rect2(408, 357, 51, 51)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_upci0"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0g4b")
+}],
 "loop": false,
 "name": &"ANSPUCKEN",
 "speed": 1.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0g4b")
+}],
 "loop": false,
 "name": &"BELEIDIGEN",
 "speed": 1.0
@@ -129,6 +135,6 @@ position = Vector2(18, -45)
 position = Vector2(-11, 14.6537)
 scale = Vector2(1.356, 1.26902)
 sprite_frames = SubResource("SpriteFrames_upci0")
-animation = &"BELEIDIGEN"
+animation = &"ANSPUCKEN"
 
 [connection signal="animation_finished" from="aim/attack" to="." method="_on_attack_animation_finished"]
