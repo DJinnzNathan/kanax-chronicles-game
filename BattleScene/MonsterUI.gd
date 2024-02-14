@@ -8,7 +8,7 @@ func _ready():
 	$HPBar.value = $"../Enemy2".get_child(0).Health
 	
 
-func _process(delta):
+func _process(_delta):
 	$HPBar.value = $"../Enemy2".get_child(0).Health
 	$HPTxt.text = str($"../Enemy2".get_child(0).Health) + " / " + str(maxHealth)
 	$Info.text = "Monster " + str($"../Enemy2".get_child(0).name) + " LVL " + str($"../Enemy2".get_child(0).Level)

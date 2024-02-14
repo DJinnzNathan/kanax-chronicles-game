@@ -21,13 +21,14 @@ func _ready():
 		var monTemp = Game.SelectedMonsters[i]["Scene"].instantiate()
 		monTemp.name = Game.SelectedMonsters[i]["Name"]
 		monTemp.hide()
-		$Player.add_child(monTemp)
-		$Player.get_child(0).show()
+		#BUG adds instances of monster to player
+		#$Player.add_child(monTemp)
+		#$Player.get_child(0).show()
 		$UI/Menu.show()
 		
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -47,8 +48,8 @@ func MonsterTurn():
 		Game.addEXP(10)
 		get_tree().paused = false
 		queue_free()
-	$Player.get_child(selected).hit("TRETEN", damage)
-	$Action.text = "Enemy " + $Enemy2.get_child(0).name + " Has attacked using Treten for " + str(damage) + " hp"
+	$Player.get_child(selected).hit("ANSPUCKEN", damage)
+	$Action.text = "Enemy " + $Enemy2.get_child(0).name + " Has attacked using ANSPUCKEN for " + str(damage) + " hp"
 	Game.SelectedMonsters[0]["Health"] -= damage
 	await get_tree().create_timer(1).timeout
 	$UI/Menu/GridContainer/Fight.grab_focus()
