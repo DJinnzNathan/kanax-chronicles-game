@@ -23,19 +23,19 @@ var dataBaseKanaxChronicles = {
 				"Damage" : 10,
 				"cost" : 2
 			},
-			1 : {
-				"Name" : "ANSPUCKEN",
-				"Target" : "Monster",
-				"Damage" : 10,
-				"cost" : 2
-				},
-				2 : {
-					"Name" : "BELEIDIGEN",
-					"Target" : "Monster",
-					"Damage" : 10,
-					"cost" : 2
-				}
+		1 : {
+			"Name" : "ANSPUCKEN",
+			"Target" : "Monster",
+			"Damage" : 10,
+			"cost" : 2
+			},
+		2 : {
+			"Name" : "BELEIDIGEN",
+			"Target" : "Monster",
+			"Damage" : 10,
+			"cost" : 2
 			}
+		}
 		},
 		1 : {
 	"Name" : "hund",
@@ -52,19 +52,19 @@ var dataBaseKanaxChronicles = {
 				"Damage" : 10,
 				"cost" : 2
 			},
-			1 : {
-				"Name" : "ANSPUCKEN",
-				"Target" : "Monster",
-				"Damage" : 10,
-				"cost" : 2
-				},
-				2 : {
-					"Name" : "BELEIDIGEN",
-					"Target" : "Monster",
-					"Damage" : 10,
-					"cost" : 2
-				}
+		1 : {
+			"Name" : "ANSPUCKEN",
+			"Target" : "Monster",
+			"Damage" : 10,
+			"cost" : 2
+			},
+		2 : {
+			"Name" : "BELEIDIGEN",
+			"Target" : "Monster",
+			"Damage" : 10,
+			"cost" : 2
 			}
+		}
 		},
 	}
 	

@@ -1,7 +1,5 @@
 extends Control
 
-
-
 func _on_fight_pressed():
 	$Menu.hide()
 	$"Fight/GridContainer/Attack 1".grab_focus()
@@ -34,15 +32,16 @@ func _on_switch_pressed():
 
 
 func _on_flee_pressed():
-	$"../../UI/Anim".play("Transition")
+	#$"../../UI/Anim".play("Transition")
 	await get_tree().create_timer(1.5).timeout
-	get_parent().queue_free()
-	get_tree().paused = false 
+	#get_parent().queue_free()
+	#get_tree().paused = false 
+	get_tree().reload_current_scene()
 
 
 func _on_attack_pressed(extra_arg_0):
 	if Game.SelectedMonsters[get_parent().selected]["Attacks"][extra_arg_0]["Target"] == "Monster":
 		var tempDic = Game.SelectedMonsters[get_parent().selected]["Attacks"]
 		$"../Enemy2".get_child(0).hit(tempDic[extra_arg_0]["Name"], tempDic[extra_arg_0]["Damage"])
-		$"../Action".text = "Your " + str(Game.SelectedMonsters[get_parent().selected]["Name"]) + " Has attacked for " + str(tempDic[0]["Damage"]) + " hp"
+		$"../Action".text = "Your " + str(Game.SelectedMonsters[get_parent().selected]["Name"]) + " Has attacked for " + str(tempDic[0]["Damage"]) + " damage"
 		get_parent().MonsterTurn()

@@ -26,3 +26,7 @@ func capture():
 	$AnimationPlayer.play("Capture", -1, 3)
 	await $AnimationPlayer.animation_finished
 	get_parent().get_parent()._on_flee_pressed()
+
+func generate_random_health():
+	Health = randi_range(50, 99)
+	pass

@@ -29,6 +29,7 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	#if $Enemy2.get_child(0).Health <= 0
 	pass
 
 
@@ -45,14 +46,16 @@ func MonsterTurn():
 	$Action.text = "Enemy is thinking ..."
 	await get_tree().create_timer(1).timeout
 	
-	if $Enemy2.get_child(0).Health <= 0:
-		Game.addEXP(10)
-		get_tree().paused = false
-		queue_free()
-	$Player.get_child(selected).hit("ANSPUCKEN", damage)
-	$Action.text = "Enemy " + $Enemy2.get_child(0).name + " Has attacked using ANSPUCKEN for " + str(damage) + " hp"
+	$Player.get_child(selected).hit("TRETEN", damage)
+	$Action.text = "Enemy " + $Enemy2.get_child(0).name + " Has attacked for " + str(damage) + " hp"
 	Game.SelectedMonsters[0]["Health"] -= damage
 	await get_tree().create_timer(1).timeout
+	if $Enemy2.get_child(0).Health <= 0:
+		$Action.text = "Gewonnen!!"
+		#Game.addEXP(10)
+		get_tree().paused = false
+		queue_free()
+		return
 	$UI/Menu/GridContainer/Fight.grab_focus()
 	$UI/Menu.show()
 	

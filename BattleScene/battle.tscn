@@ -42,19 +42,19 @@ script = ExtResource("3_h6wt0")
 
 [node name="Info" type="Label" parent="MonsterUI"]
 layout_mode = 0
-offset_left = 1601.0
-offset_top = 1033.0
-offset_right = 1709.0
-offset_bottom = 1056.0
+offset_left = 2168.0
+offset_top = 1331.0
+offset_right = 2276.0
+offset_bottom = 1354.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "KANAX LVL 15"
 
 [node name="HPTxt" type="Label" parent="MonsterUI"]
 layout_mode = 0
-offset_left = 1871.0
-offset_top = 1083.0
-offset_right = 1982.0
-offset_bottom = 1106.0
+offset_left = 2438.0
+offset_top = 1381.0
+offset_right = 2549.0
+offset_bottom = 1404.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "10/10"
 horizontal_alignment = 1
@@ -62,10 +62,10 @@ vertical_alignment = 1
 
 [node name="HPBar" type="ProgressBar" parent="MonsterUI"]
 layout_mode = 0
-offset_left = 1601.0
-offset_top = 1057.0
-offset_right = 1927.0
-offset_bottom = 1082.0
+offset_left = 2168.0
+offset_top = 1355.0
+offset_right = 2494.0
+offset_bottom = 1380.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_0qesb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jw3vk")
 value = 50.0
@@ -80,15 +80,16 @@ position = Vector2(764, 302)
 scale = Vector2(1.5, 1.5)
 
 [node name="Action" type="Label" parent="."]
-offset_left = 420.0
-offset_top = 67.0
-offset_right = 830.0
-offset_bottom = 109.0
+offset_left = 97.0
+offset_top = 82.0
+offset_right = 507.0
+offset_bottom = 124.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "This is an Action!"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -236,10 +237,10 @@ text = "BACK"
 
 [node name="Switch" type="HBoxContainer" parent="UI"]
 layout_mode = 0
-offset_left = 2131.0
-offset_top = 1354.0
-offset_right = 2351.0
-offset_bottom = 1431.0
+offset_left = 2175.0
+offset_top = 1385.0
+offset_right = 2348.0
+offset_bottom = 1460.0
 scale = Vector2(2, 2)
 theme_override_constants/separation = 840
 
@@ -303,19 +304,19 @@ text = "BACK"
 
 [node name="Info" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 2180.0
-offset_top = 1317.0
-offset_right = 2288.0
-offset_bottom = 1340.0
+offset_left = 1592.0
+offset_top = 1465.0
+offset_right = 1700.0
+offset_bottom = 1488.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "KANAX LVL 15"
 
 [node name="HPTxt" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 2450.0
-offset_top = 1367.0
-offset_right = 2561.0
-offset_bottom = 1390.0
+offset_left = 1862.0
+offset_top = 1515.0
+offset_right = 1973.0
+offset_bottom = 1538.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "10/10"
 horizontal_alignment = 1
@@ -323,10 +324,10 @@ vertical_alignment = 1
 
 [node name="HPBar" type="ProgressBar" parent="UI"]
 layout_mode = 0
-offset_left = 2180.0
-offset_top = 1341.0
-offset_right = 2506.0
-offset_bottom = 1366.0
+offset_left = 1592.0
+offset_top = 1489.0
+offset_right = 1918.0
+offset_bottom = 1514.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_0qesb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jw3vk")
 value = 50.0
