@@ -33,6 +33,7 @@ func _process(_delta):
 
 
 func _on_capture_pressed():
+	$"Action".text = "You can't capture... just fight, man!"
 	pass # Replace with function body.
 	
 func MonsterTurn():

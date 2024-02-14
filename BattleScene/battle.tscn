@@ -235,7 +235,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_l67wb")
 text = "BACK"
 
 [node name="Switch" type="HBoxContainer" parent="UI"]
-visible = false
 layout_mode = 0
 offset_left = 2131.0
 offset_top = 1354.0
@@ -245,7 +244,6 @@ scale = Vector2(2, 2)
 theme_override_constants/separation = 840
 
 [node name="GridContainer" type="GridContainer" parent="UI/Switch"]
-visible = false
 layout_mode = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0

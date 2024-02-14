@@ -29,6 +29,8 @@ func _on_switch_pressed():
 	$"Switch/GridContainer/Monster 1".grab_focus()
 	$Switch.show()
 	$Fight.hide()
+	#$Menu.show()
+	#pass
 
 
 func _on_flee_pressed():
